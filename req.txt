@@ -1,0 +1,10 @@
+django
+djangorestframework
+markdown
+django-filter
+pillow
+celery
+anyjson
+numpy
+pip install -U "Celery[redis]"
+
