@@ -6,18 +6,31 @@ from subprocess import call
 
 @app.task
 def servicio_interruptor(equis):
-    process = subprocess.run(["sudo", "cec-ctl", "--playback", "-S", "-t0"])
-    process
+    call(["sudo", "cec-ctl", "--playback", "-t0"])
+
     if equis == 1 :
-        process = subprocess.run(["sudo", "cec-ctl", "--image-view-on", "-t0"])
-        process
+        call(["sudo", "cec-ctl", "--image-view-on", "-t0"])
+
     elif equis == 2:
-        process = subprocess.run(["sudo", "cec-ctl", "--standby", "-t0"])
-        process
+        call(["sudo", "cec-ctl", "--standby", "-t0"])
+
     else :
         return ("Opción no reconocida")
     
     return "comando enviado a TV"
+
+@app.task
+def servicio_interruptor_T(equis):
+    
+    if equis == 1 :
+        print("Tinker encendida")
+    elif equis == 2:
+        call(["sudo","systemctl", "suspend"])
+    else :
+        return ("Opción no reconocida")
+    
+    return "comando enviado a Tinker"
+
 
 @app.task
 def servicio_volumen(equis):

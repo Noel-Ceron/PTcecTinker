@@ -9,4 +9,5 @@ urlpatterns =[
         url(r'^tv_interruptor/$', views.interruptor),
         url(r'^vol_interruptor/$', views.vol),
         url(r'^mute_interruptor/$', views.mudo),
+        url(r'^tinker_interruptor/$', views.interruptor_T),
         ]
